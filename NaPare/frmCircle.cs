@@ -15,6 +15,7 @@ namespace NaPare
         public frmCircle()
         {
             InitializeComponent();
+
         }
 
         private void frmCircle_Load(object sender, EventArgs e)
