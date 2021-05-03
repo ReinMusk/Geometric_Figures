@@ -17,6 +17,9 @@ namespace NaPare
             InitializeComponent();
         }
 
+
+
+
         private void btnCircle_Click(object sender, EventArgs e)
         {
             var frmCircle = new frmCircle();
@@ -71,8 +74,37 @@ namespace NaPare
         {
             var paper = centerPanel.CreateGraphics();
             var pen = new Pen(Color.Green, 5);
-            paper.DrawRectangle(pen, e.X, e.Y, 60, 60);
 
+            if (rdoCircle.Checked)
+            {
+                paper.DrawEllipse(pen, e.X, e.Y, 50, 50);
+            }
+
+            if (rdoLine.Checked)
+            {
+                var start = new Point(e.X, e.Y);
+                var finish = new Point(e.X, e.Y);
+                paper.DrawLine(pen, start, finish);
+            }
+
+            if (rdoTriangle.Checked)
+            {
+                Point[] points = { new Point(20, e.X), new Point(e.Y, e.X), new Point(60, e.Y) };
+                paper.DrawPolygon(pen, points);
+            }
+
+            if (rdoSquare.Checked)
+            {
+                paper = centerPanel.CreateGraphics();
+                pen = new Pen(Color.Blue, 5);
+                paper.DrawRectangle(pen, e.X, e.Y, 100, 100);
+            }
         }
+
+        private void btnPen_Click(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }

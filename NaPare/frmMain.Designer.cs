@@ -30,16 +30,27 @@ namespace NaPare
         private void InitializeComponent()
         {
             this.topPanel = new System.Windows.Forms.Panel();
+            this.btnPen = new System.Windows.Forms.Button();
+            this.rdoSquare = new System.Windows.Forms.RadioButton();
+            this.rdoTriangle = new System.Windows.Forms.RadioButton();
+            this.rdoLine = new System.Windows.Forms.RadioButton();
+            this.rdoCircle = new System.Windows.Forms.RadioButton();
             this.btnSquare = new System.Windows.Forms.Button();
             this.btnTriangle = new System.Windows.Forms.Button();
             this.btnLine = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
             this.centerPanel = new System.Windows.Forms.Panel();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
             // 
+            this.topPanel.Controls.Add(this.btnPen);
+            this.topPanel.Controls.Add(this.rdoSquare);
+            this.topPanel.Controls.Add(this.rdoTriangle);
+            this.topPanel.Controls.Add(this.rdoLine);
+            this.topPanel.Controls.Add(this.rdoCircle);
             this.topPanel.Controls.Add(this.btnSquare);
             this.topPanel.Controls.Add(this.btnTriangle);
             this.topPanel.Controls.Add(this.btnLine);
@@ -50,9 +61,60 @@ namespace NaPare
             this.topPanel.Size = new System.Drawing.Size(976, 72);
             this.topPanel.TabIndex = 0;
             // 
+            // btnPen
+            // 
+            this.btnPen.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnPen.Location = new System.Drawing.Point(12, 14);
+            this.btnPen.Name = "btnPen";
+            this.btnPen.Size = new System.Drawing.Size(91, 42);
+            this.btnPen.TabIndex = 8;
+            this.btnPen.Text = "PEN";
+            this.btnPen.UseVisualStyleBackColor = false;
+            this.btnPen.Click += new System.EventHandler(this.btnPen_Click);
+            // 
+            // rdoSquare
+            // 
+            this.rdoSquare.AutoSize = true;
+            this.rdoSquare.Location = new System.Drawing.Point(861, 27);
+            this.rdoSquare.Name = "rdoSquare";
+            this.rdoSquare.Size = new System.Drawing.Size(17, 16);
+            this.rdoSquare.TabIndex = 7;
+            this.rdoSquare.TabStop = true;
+            this.rdoSquare.UseVisualStyleBackColor = true;
+            // 
+            // rdoTriangle
+            // 
+            this.rdoTriangle.AutoSize = true;
+            this.rdoTriangle.Location = new System.Drawing.Point(659, 27);
+            this.rdoTriangle.Name = "rdoTriangle";
+            this.rdoTriangle.Size = new System.Drawing.Size(17, 16);
+            this.rdoTriangle.TabIndex = 6;
+            this.rdoTriangle.TabStop = true;
+            this.rdoTriangle.UseVisualStyleBackColor = true;
+            // 
+            // rdoLine
+            // 
+            this.rdoLine.AutoSize = true;
+            this.rdoLine.Location = new System.Drawing.Point(457, 27);
+            this.rdoLine.Name = "rdoLine";
+            this.rdoLine.Size = new System.Drawing.Size(17, 16);
+            this.rdoLine.TabIndex = 5;
+            this.rdoLine.TabStop = true;
+            this.rdoLine.UseVisualStyleBackColor = true;
+            // 
+            // rdoCircle
+            // 
+            this.rdoCircle.AutoSize = true;
+            this.rdoCircle.Location = new System.Drawing.Point(255, 27);
+            this.rdoCircle.Name = "rdoCircle";
+            this.rdoCircle.Size = new System.Drawing.Size(17, 16);
+            this.rdoCircle.TabIndex = 4;
+            this.rdoCircle.TabStop = true;
+            this.rdoCircle.UseVisualStyleBackColor = true;
+            // 
             // btnSquare
             // 
-            this.btnSquare.Location = new System.Drawing.Point(726, 21);
+            this.btnSquare.Location = new System.Drawing.Point(884, 20);
             this.btnSquare.Name = "btnSquare";
             this.btnSquare.Size = new System.Drawing.Size(80, 30);
             this.btnSquare.TabIndex = 3;
@@ -62,7 +124,7 @@ namespace NaPare
             // 
             // btnTriangle
             // 
-            this.btnTriangle.Location = new System.Drawing.Point(544, 21);
+            this.btnTriangle.Location = new System.Drawing.Point(682, 20);
             this.btnTriangle.Name = "btnTriangle";
             this.btnTriangle.Size = new System.Drawing.Size(80, 30);
             this.btnTriangle.TabIndex = 2;
@@ -72,7 +134,7 @@ namespace NaPare
             // 
             // btnLine
             // 
-            this.btnLine.Location = new System.Drawing.Point(349, 21);
+            this.btnLine.Location = new System.Drawing.Point(480, 20);
             this.btnLine.Name = "btnLine";
             this.btnLine.Size = new System.Drawing.Size(80, 30);
             this.btnLine.TabIndex = 1;
@@ -82,7 +144,7 @@ namespace NaPare
             // 
             // btnCircle
             // 
-            this.btnCircle.Location = new System.Drawing.Point(168, 21);
+            this.btnCircle.Location = new System.Drawing.Point(278, 20);
             this.btnCircle.Name = "btnCircle";
             this.btnCircle.Size = new System.Drawing.Size(80, 30);
             this.btnCircle.TabIndex = 0;
@@ -110,6 +172,7 @@ namespace NaPare
             this.Name = "frmMain";
             this.Text = "Form1";
             this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -122,6 +185,12 @@ namespace NaPare
         private System.Windows.Forms.Button btnSquare;
         private System.Windows.Forms.Button btnTriangle;
         private System.Windows.Forms.Button btnLine;
+        private System.Windows.Forms.RadioButton rdoSquare;
+        private System.Windows.Forms.RadioButton rdoTriangle;
+        private System.Windows.Forms.RadioButton rdoLine;
+        private System.Windows.Forms.RadioButton rdoCircle;
+        private System.Windows.Forms.Button btnPen;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
