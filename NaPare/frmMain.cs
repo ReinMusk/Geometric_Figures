@@ -82,14 +82,12 @@ namespace NaPare
 
             if (rdoLine.Checked)
             {
-                var start = new Point(e.X, e.Y);
-                var finish = new Point(e.X, e.Y);
-                paper.DrawLine(pen, start, finish);
+                paper.DrawLine(pen, new Point(e.X, 100), new Point(e.Y, 100));
             }
 
             if (rdoTriangle.Checked)
             {
-                Point[] points = { new Point(20, e.X), new Point(e.Y, e.X), new Point(60, e.Y) };
+                Point[] points = { new Point(e.X, e.Y), new Point(e.X, e.Y), new Point(e.X, e.Y) };
                 paper.DrawPolygon(pen, points);
             }
 
@@ -106,5 +104,9 @@ namespace NaPare
             
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
