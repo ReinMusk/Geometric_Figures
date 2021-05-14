@@ -20,17 +20,18 @@ namespace NaPare
             InitializeComponent();
             draw = new Bitmap(centerPanel.Width, centerPanel.Height);
             paper = Graphics.FromImage(draw);
+
         }
 
         private void btnCircle_Click(object sender, EventArgs e)
         {
             var frmCircle = new frmCircle();
 
-            if(frmCircle.ShowDialog(this) == DialogResult.OK)
+            if (frmCircle.ShowDialog(this) == DialogResult.OK)
             {
-                var paper = centerPanel.CreateGraphics();
                 var pen = new Pen(Color.Blue, 4);
                 paper.DrawEllipse(pen, 200, 200, 100, 100);
+                centerPanel.Refresh();
             }
         }
 
@@ -40,9 +41,9 @@ namespace NaPare
 
             if (frmLine.ShowDialog(this) == DialogResult.OK)
             {
-                var paper = centerPanel.CreateGraphics();
                 var pen = new Pen(Color.Blue, 4);
-                paper.DrawLine(pen, new Point(200,100), new Point(100,350));
+                paper.DrawLine(pen, new Point(200, 100), new Point(100, 350));
+                centerPanel.Refresh();
             }
         }
 
@@ -52,11 +53,11 @@ namespace NaPare
 
             if (frmTriangle.ShowDialog(this) == DialogResult.OK)
             {
-                var paper = centerPanel.CreateGraphics();
                 var pen = new Pen(Color.Blue, 5);
 
                 Point[] points = { new Point(20, 20), new Point(110, 20), new Point(60, 110) };
                 paper.DrawPolygon(pen, points);
+                centerPanel.Refresh();
 
             }
         }
@@ -67,15 +68,14 @@ namespace NaPare
 
             if (frmSquare.ShowDialog(this) == DialogResult.OK)
             {
-                var paper = centerPanel.CreateGraphics();
                 var pen = new Pen(Color.Blue, 5);
                 paper.DrawRectangle(pen, 130, 130, 180, 180);
+                centerPanel.Refresh();
             }
         }
 
         private void centerPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            var paper = centerPanel.CreateGraphics();
             var pen = new Pen(Color.Green, 5);
 
             if (rdoCircle.Checked)
@@ -99,15 +99,15 @@ namespace NaPare
 
             if (rdoSquare.Checked)
             {
-                paper = centerPanel.CreateGraphics();
                 pen = new Pen(Color.Blue, 5);
                 paper.DrawRectangle(pen, e.X, e.Y, 100, 100);
             }
+            centerPanel.Refresh();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            var img = new Bitmap("C:\\Users\\ReinMusk\\Desktop\\test220.png");
+            var img = new Bitmap("c:\\users\\public\\pictures\\test220.png");
             draw.Dispose();
             draw = new Bitmap(img);
             paper = Graphics.FromImage(draw);
@@ -117,7 +117,12 @@ namespace NaPare
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            draw.Save("C:\\Users\\ReinMusk\\Desktop\\test220.png", System.Drawing.Imaging.ImageFormat.Png);
+            draw.Save("c:\\users\\public\\pictures\\220.png", System.Drawing.Imaging.ImageFormat.Png);
+        }
+
+        private void centerPanel_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(draw, new Point(0, 0));
         }
     }
 }
