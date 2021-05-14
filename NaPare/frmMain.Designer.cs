@@ -30,7 +30,8 @@ namespace NaPare
         private void InitializeComponent()
         {
             this.topPanel = new System.Windows.Forms.Panel();
-            this.btnPen = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.rdoSquare = new System.Windows.Forms.RadioButton();
             this.rdoTriangle = new System.Windows.Forms.RadioButton();
             this.rdoLine = new System.Windows.Forms.RadioButton();
@@ -41,14 +42,13 @@ namespace NaPare
             this.btnCircle = new System.Windows.Forms.Button();
             this.centerPanel = new System.Windows.Forms.Panel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
             // 
-            this.topPanel.Controls.Add(this.button1);
-            this.topPanel.Controls.Add(this.btnPen);
+            this.topPanel.Controls.Add(this.btnSave);
+            this.topPanel.Controls.Add(this.btnLoad);
             this.topPanel.Controls.Add(this.rdoSquare);
             this.topPanel.Controls.Add(this.rdoTriangle);
             this.topPanel.Controls.Add(this.rdoLine);
@@ -63,16 +63,25 @@ namespace NaPare
             this.topPanel.Size = new System.Drawing.Size(976, 72);
             this.topPanel.TabIndex = 0;
             // 
-            // btnPen
+            // btnSave
             // 
-            this.btnPen.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnPen.Location = new System.Drawing.Point(12, 14);
-            this.btnPen.Name = "btnPen";
-            this.btnPen.Size = new System.Drawing.Size(91, 42);
-            this.btnPen.TabIndex = 8;
-            this.btnPen.Text = "PEN";
-            this.btnPen.UseVisualStyleBackColor = false;
-            this.btnPen.Click += new System.EventHandler(this.btnPen_Click);
+            this.btnSave.Location = new System.Drawing.Point(125, 24);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(26, 24);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 8;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // rdoSquare
             // 
@@ -164,15 +173,6 @@ namespace NaPare
             this.centerPanel.TabIndex = 1;
             this.centerPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.centerPanel_MouseClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(173, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -200,9 +200,9 @@ namespace NaPare
         private System.Windows.Forms.RadioButton rdoTriangle;
         private System.Windows.Forms.RadioButton rdoLine;
         private System.Windows.Forms.RadioButton rdoCircle;
-        private System.Windows.Forms.Button btnPen;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnLoad;
     }
 }
 

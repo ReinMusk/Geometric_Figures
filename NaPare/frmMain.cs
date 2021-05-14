@@ -12,13 +12,15 @@ namespace NaPare
 {
     public partial class frmMain : Form
     {
+        private Bitmap draw;
+        private Graphics paper;
+
         public frmMain()
         {
             InitializeComponent();
+            draw = new Bitmap(centerPanel.Width, centerPanel.Height);
+            paper = Graphics.FromImage(draw);
         }
-
-
-
 
         private void btnCircle_Click(object sender, EventArgs e)
         {
@@ -55,6 +57,7 @@ namespace NaPare
 
                 Point[] points = { new Point(20, 20), new Point(110, 20), new Point(60, 110) };
                 paper.DrawPolygon(pen, points);
+
             }
         }
 
@@ -82,13 +85,16 @@ namespace NaPare
 
             if (rdoLine.Checked)
             {
-                paper.DrawLine(pen, new Point(e.X, 100), new Point(e.Y, 100));
+                int secX = e.X + 50 / 2;
+                int firstX = e.X - 50 / 2;
+                paper.DrawLine(pen, new Point(firstX, e.Y), new Point(secX, e.Y));
             }
 
             if (rdoTriangle.Checked)
             {
-                Point[] points = { new Point(e.X, e.Y), new Point(e.X, e.Y), new Point(e.X, e.Y) };
-                paper.DrawPolygon(pen, points);
+                paper.DrawLine(pen, new Point(e.X, e.Y), new Point(e.X + 50, e.Y));
+                paper.DrawLine(pen, new Point(e.X, e.Y), new Point(e.X, e.Y + 70));
+                paper.DrawLine(pen, new Point(e.X + 50, e.Y), new Point(e.X, e.Y + 70));
             }
 
             if (rdoSquare.Checked)
@@ -99,14 +105,19 @@ namespace NaPare
             }
         }
 
-        private void btnPen_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
-            
+            var img = new Bitmap("C:\\Users\\ReinMusk\\Desktop\\test220.png");
+            draw.Dispose();
+            draw = new Bitmap(img);
+            paper = Graphics.FromImage(draw);
+            centerPanel.Refresh();
+            img.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
+            draw.Save("C:\\Users\\ReinMusk\\Desktop\\test220.png", System.Drawing.Imaging.ImageFormat.Png);
         }
     }
 }
