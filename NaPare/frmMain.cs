@@ -14,69 +14,19 @@ namespace NaPare
     {
         private Bitmap draw;
         private Graphics paper;
+        private Color color = Color.Black;
+        private int lineSize = 1;
 
         public frmMain()
         {
             InitializeComponent();
             draw = new Bitmap(centerPanel.Width, centerPanel.Height);
             paper = Graphics.FromImage(draw);
-
-        }
-
-        private void btnCircle_Click(object sender, EventArgs e)
-        {
-            var frmCircle = new frmCircle();
-
-            if (frmCircle.ShowDialog(this) == DialogResult.OK)
-            {
-                var pen = new Pen(Color.Blue, 4);
-                paper.DrawEllipse(pen, 200, 200, 100, 100);
-                centerPanel.Refresh();
-            }
-        }
-
-        private void btnLine_Click(object sender, EventArgs e)
-        {
-            var frmLine = new frmLine();
-
-            if (frmLine.ShowDialog(this) == DialogResult.OK)
-            {
-                var pen = new Pen(Color.Blue, 4);
-                paper.DrawLine(pen, new Point(200, 100), new Point(100, 350));
-                centerPanel.Refresh();
-            }
-        }
-
-        private void btnTriangle_Click(object sender, EventArgs e)
-        {
-            var frmTriangle = new frmTriangle();
-
-            if (frmTriangle.ShowDialog(this) == DialogResult.OK)
-            {
-                var pen = new Pen(Color.Blue, 5);
-
-                Point[] points = { new Point(20, 20), new Point(110, 20), new Point(60, 110) };
-                paper.DrawPolygon(pen, points);
-                centerPanel.Refresh();
-
-            }
-        }
-
-        private void btnSquare_Click(object sender, EventArgs e)
-        {
-            var frmSquare = new frmSquare();
-
-            if (frmSquare.ShowDialog(this) == DialogResult.OK)
-            {
-                var pen = new Pen(Color.Blue, 5);
-                paper.DrawRectangle(pen, 130, 130, 180, 180);
-                centerPanel.Refresh();
-            }
         }
 
         private void centerPanel_MouseClick(object sender, MouseEventArgs e)
         {
-            var pen = new Pen(Color.Green, 5);
+            var pen = new Pen(color, lineSize);
 
             if (rdoCircle.Checked)
             {
@@ -99,15 +49,20 @@ namespace NaPare
 
             if (rdoSquare.Checked)
             {
-                pen = new Pen(Color.Blue, 5);
                 paper.DrawRectangle(pen, e.X, e.Y, 100, 100);
             }
+
             centerPanel.Refresh();
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void centerPanel_Paint(object sender, PaintEventArgs e)
         {
-            var img = new Bitmap("c:\\users\\public\\pictures\\test220.png");
+            e.Graphics.DrawImage(draw, new Point(0, 0));
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var img = new Bitmap("C:\\Users\\ReinMusk\\Desktop\\test220.png");
             draw.Dispose();
             draw = new Bitmap(img);
             paper = Graphics.FromImage(draw);
@@ -115,14 +70,33 @@ namespace NaPare
             img.Dispose();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            draw.Save("c:\\users\\public\\pictures\\220.png", System.Drawing.Imaging.ImageFormat.Png);
+            draw.Save("C:\\Users\\ReinMusk\\Desktop\\test220.png", System.Drawing.Imaging.ImageFormat.Png);
         }
 
-        private void centerPanel_Paint(object sender, PaintEventArgs e)
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            e.Graphics.DrawImage(draw, new Point(0, 0));
+            centerPanel.Controls.Clear();
+        }
+
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                color = colorDialog1.Color;
+                btnColor.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void txtSize_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                lineSize = Convert.ToInt32(txtSize.Text);
+            }
+            catch { Exception ex; }
+            
         }
     }
 }

@@ -6,10 +6,7 @@ namespace Class_WinForms
     {
         static void Main(string[] args)
         {
-            //Типо коммент
+            
         }
-        
-
-
     }
 }

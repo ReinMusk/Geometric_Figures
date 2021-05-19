@@ -46,50 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmTriangle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTriangle.Designer.cs">
-      <DependentUpon>frmTriangle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSquare.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSquare.Designer.cs">
-      <DependentUpon>frmSquare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLine.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLine.Designer.cs">
-      <DependentUpon>frmLine.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCircle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCircle.Designer.cs">
-      <DependentUpon>frmCircle.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmTriangle.resx">
-      <DependentUpon>frmTriangle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSquare.resx">
-      <DependentUpon>frmSquare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLine.resx">
-      <DependentUpon>frmLine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCircle.resx">
-      <DependentUpon>frmCircle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
