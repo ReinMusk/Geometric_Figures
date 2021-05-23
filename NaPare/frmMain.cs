@@ -33,21 +33,21 @@ namespace NaPare
                 paper.DrawEllipse(pen, e.X, e.Y, 50, 50);
             }
 
-            if (rdoLine.Checked)
+            else if (rdoLine.Checked)
             {
                 int secX = e.X + 50 / 2;
                 int firstX = e.X - 50 / 2;
                 paper.DrawLine(pen, new Point(firstX, e.Y), new Point(secX, e.Y));
             }
 
-            if (rdoTriangle.Checked)
+            else if (rdoTriangle.Checked)
             {
                 paper.DrawLine(pen, new Point(e.X, e.Y), new Point(e.X + 50, e.Y));
                 paper.DrawLine(pen, new Point(e.X, e.Y), new Point(e.X, e.Y + 70));
                 paper.DrawLine(pen, new Point(e.X + 50, e.Y), new Point(e.X, e.Y + 70));
             }
 
-            if (rdoSquare.Checked)
+            else if (rdoSquare.Checked)
             {
                 paper.DrawRectangle(pen, e.X, e.Y, 100, 100);
             }
@@ -77,7 +77,7 @@ namespace NaPare
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            centerPanel.Controls.Clear();
+            // clear
         }
 
         private void btnColor_Click(object sender, EventArgs e)
@@ -95,8 +95,7 @@ namespace NaPare
             {
                 lineSize = Convert.ToInt32(txtSize.Text);
             }
-            catch { Exception ex; }
-            
+            catch { Exception ex; }   
         }
     }
 }

@@ -89,7 +89,7 @@ namespace NaPare
             // Label
             // 
             this.Label.AutoSize = true;
-            this.Label.Location = new System.Drawing.Point(527, 30);
+            this.Label.Location = new System.Drawing.Point(523, 30);
             this.Label.Name = "Label";
             this.Label.Size = new System.Drawing.Size(35, 17);
             this.Label.TabIndex = 16;
@@ -240,6 +240,7 @@ namespace NaPare
             this.centerPanel.Name = "centerPanel";
             this.centerPanel.Size = new System.Drawing.Size(976, 459);
             this.centerPanel.TabIndex = 1;
+            this.centerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.centerPanel_Paint);
             this.centerPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.centerPanel_MouseClick);
             // 
             // openFileDialog1
